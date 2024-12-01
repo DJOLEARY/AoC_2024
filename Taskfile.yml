@@ -70,7 +70,7 @@ tasks:
     deps:
       - task: build
     cmds:
-      - cmd: dune test
+      - cmd: dune test --force
 
   run:
     desc: "Runs the project"
