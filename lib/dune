@@ -1,4 +1,5 @@
 (library
- (name AoC_2024))
+ (name AoC_2024)
+ (libraries re))
 
 (include_subdirs qualified)
