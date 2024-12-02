@@ -9,7 +9,4 @@ let solve left right =
   let distances = List.map2 calculate_distance sorted_left sorted_right in
   List.fold_left ( + ) 0 distances
 
-let lines_to_lists lines =
-  let regex = Re.compile Re.(seq []) in (* @TODO Compile regex for extracting number tuples *)
-  let number_tuples = List.map (Re.exec regex) lines in
-  number_tuples
+let lines_to_lists _ = ([ 1 ], [ 2 ])
