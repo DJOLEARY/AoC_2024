@@ -1,13 +1,16 @@
-(* Day 1: Part 1 *)
+(* Day 1: Part 2 *)
 
-let calculate_distance x y = Stdlib.abs (x - y)
+let rec count_occurrances_help element acc lst =
+  match lst with
+  | [] -> acc
+  | h :: t ->
+      if h = element then count_occurrances_help element (acc + 1) t
+      else count_occurrances_help element acc t
 
-(** Require: left and right to be the same length *)
+let count_occurrances element lst = count_occurrances_help element 0 lst
+
 let solve left right =
-  let sorted_left = List.sort Stdlib.compare left in
-  let sorted_right = List.sort Stdlib.compare right in
-  let distances = List.map2 calculate_distance sorted_left sorted_right in
-  List.fold_left ( + ) 0 distances
+  List.map (fun x -> x * count_occurrances x right) left |> List.fold_left ( + ) 0
 
 let left line =
   let pos = 0 in

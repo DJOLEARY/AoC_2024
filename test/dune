@@ -1,3 +1,3 @@
 (tests
- (names day_01_part_01)
+ (names day_01_part_01 day_01_part_02)
  (libraries AoC_2024 ounit2))
