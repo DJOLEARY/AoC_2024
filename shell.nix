@@ -21,7 +21,6 @@ pkgs.mkShell {
       ocamlgraph
       odoc
       ounit2
-      re
       utop
     ];
 }
