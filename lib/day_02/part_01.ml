@@ -33,7 +33,6 @@ let rec count_safe_reports acc lst =
   | h :: t ->
       if h then count_safe_reports (acc + 1) t else count_safe_reports acc t
 
-(* Previous Guesses: 9 *)
 let solve reports =
   reports |> List.map check_report_safety |> count_safe_reports 0
 
