@@ -65,6 +65,8 @@ tasks:
 
   test:
     desc: "Runs the tests in the 'tests' directory"
+    env:
+      OUNIT_CI: true
     preconditions:
       - which dune
     deps:
