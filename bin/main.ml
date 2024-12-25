@@ -28,6 +28,13 @@ let day_2 =
   let part_01 = Day_02.Part_01.solve reports in
   print_solution 2 1 part_01
 
+let day_3 =
+  let lines = File.Read_input.lines_from_file (day_to_path 3) in
+  let line = List.fold_left (fun acc line -> acc ^ line) "" lines in
+  let part_01 = Day_03.Part_01.solve line in
+  print_solution 3 1 part_01
+
 let _ =
   day_1;
-  day_2
+  day_2;
+  day_3

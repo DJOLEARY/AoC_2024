@@ -6,10 +6,10 @@ in
 pkgs.mkShell {
   # build tools
     nativeBuildInputs = with ocamlPackages; [ 
+      pkgs.opam
       ocaml
       findlib
       dune_3
-      ocaml-lsp
     ];
   # dependencies
     buildInputs = with ocamlPackages; [ 
@@ -21,6 +21,7 @@ pkgs.mkShell {
       ocamlgraph
       odoc
       ounit2
+      re2
       utop
     ];
 }
