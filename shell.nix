@@ -23,5 +23,7 @@ pkgs.mkShell {
       ounit2
       re2
       utop
+
+      pkgs.gh # GitHub CLI
     ];
 }
