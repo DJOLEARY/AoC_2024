@@ -34,7 +34,13 @@ let day_3 =
   let part_01 = Day_03.Part_01.solve line in
   print_solution 3 1 part_01
 
+let day_4 =
+  let lines = File.Read_input.lines_from_file (day_to_path 4) in
+  let part_01 = Day_04.Part_01.solve lines in
+  print_solution 4 1 part_01
+
 let _ =
   day_1;
   day_2;
-  day_3
+  day_3;
+  day_4
