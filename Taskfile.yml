@@ -65,6 +65,7 @@ tasks:
 
   test:
     desc: "Runs the tests in the 'tests' directory"
+    ignore_error: true
     env:
       OUNIT_CI: true
     preconditions:
@@ -72,7 +73,22 @@ tasks:
     deps:
       - task: build
     cmds:
-      - cmd: dune test --force
+      - cmd: dune test {{.CLI_ARGS}}
+
+  test:watch:
+    desc: "Continuously runs the tests in the 'tests' directory"
+    ignore_error: true
+    sources:
+      - "lib/**/*.ml"
+      - "test/**/*.ml"
+    env:
+      OUNIT_CI: true
+    preconditions:
+      - which dune
+    deps:
+      - task: build
+    cmds:
+      - cmd: dune test --watch {{.CLI_ARGS}}
 
   run:
     desc: "Runs the project"
