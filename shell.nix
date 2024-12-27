@@ -4,14 +4,14 @@ let
  ocamlPackages = pkgs.ocaml-ng.ocamlPackages_5_2;
 in
 pkgs.mkShell {
-  # build tools
+    # build tools
     nativeBuildInputs = with ocamlPackages; [ 
       pkgs.opam
       ocaml
       findlib
       dune_3
     ];
-  # dependencies
+    # dependencies
     buildInputs = with ocamlPackages; [ 
       bisect_ppx
       findlib
@@ -25,5 +25,12 @@ pkgs.mkShell {
       utop
 
       pkgs.gh # GitHub CLI
+
+      # Fallback language
+      pkgs.php84
+      pkgs.intelephense
+      pkgs.php84Packages.php-cs-fixer
+      pkgs.php84Packages.phpstan
+      pkgs.nodejs_18
     ];
 }
