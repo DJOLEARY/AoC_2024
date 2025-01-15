@@ -1,18 +1,23 @@
-{ pkgs ? import <nixpkgs> { } }:
+{}:
 let
+ config = {
+   allowUnfree = true;
+ };
+ pkgs = import <nixpkgs> { inherit config; };
+
  # choose the ocaml version you want to use
  ocamlPackages = pkgs.ocaml-ng.ocamlPackages_5_2;
 in
 pkgs.mkShell {
     # build tools
-    nativeBuildInputs = with ocamlPackages; [ 
+    nativeBuildInputs = with ocamlPackages; [
       pkgs.opam
       ocaml
       findlib
       dune_3
     ];
     # dependencies
-    buildInputs = with ocamlPackages; [ 
+    buildInputs = with ocamlPackages; [
       bisect_ppx
       findlib
       menhir
